@@ -20,11 +20,12 @@ import Logo from "../../assets/logo.svg";
 
 import { Link } from "react-router";
 
-export function Login() {
+export function Register() {
   const navigate = useNavigate();
 
   const schema = yup
     .object({
+      name: yup.string().required("Este campo é obrigatório."),
       email: yup
         .string()
         .email("O Email precisa ser válido.")
@@ -33,6 +34,10 @@ export function Login() {
         .string()
         .min(6, "A senha precisa ter no mínimo 6 caractéres.")
         .required("Este campo é obrigatório."),
+      confirmPassword: yup
+        .string()
+        .oneOf([yup.ref("password")], "As senhas devem ser iguais.")
+        .required("Confirme a senha."),
     })
     .required();
 
@@ -45,26 +50,30 @@ export function Login() {
   });
   const onSubmit = async (data) => {
     try {
-      await toast.promise(
-        api.post("/session", {
+      const { status } = await api.post(
+        "/users",
+        {
+          name: data.name,
           email: data.email,
           password: data.password,
-        }),
+        },
         {
-          pending: "Verificando dados...",
-          success: {
-            render() {
-              setTimeout(() => {
-                navigate("/");
-              }, 2000);
-              return "Login realizado com sucesso. 👌";
-            },
-          },
-          error: "Email ou senha incorretos. 😑",
+          validateStatus: () => true,
         }
       );
+
+      if (status === 201) {
+        toast.success("Cadastro feito com sucesso! 😁");
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
+      } else if (status === 409) {
+        toast.error("Email já cadastrado. Faça login para continuar. 😐");
+      } else {
+        throw new Error();
+      }
     } catch (err) {
-      console.log(err.message);
+      toast.error("Não foi possivel realizar o cadastro. 😞");
     }
   };
 
@@ -74,11 +83,13 @@ export function Login() {
         <img src={Logo} alt="devburger-logo" />
       </LeftContainer>
       <RightContainer>
-        <Title>
-          Olá, seja bem-vindo ao <span>DevBurger!</span> <br /> Acesse com seu
-          <span> Login e Senha.</span>
-        </Title>
+        <Title>Criar conta</Title>
         <Form onSubmit={handleSubmit(onSubmit)}>
+          <InputContainer>
+            <label>Nome</label>
+            <input type="text" {...register("name")} />
+            <p>{errors?.name?.message}</p>
+          </InputContainer>
           <InputContainer>
             <label>Email</label>
             <input type="email" {...register("email")} />
@@ -89,11 +100,16 @@ export function Login() {
             <input type="password" {...register("password")} />
             <p>{errors?.password?.message}</p>
           </InputContainer>
+          <InputContainer>
+            <label>Confirmar senha</label>
+            <input type="password" {...register("confirmPassword")} />
+            <p>{errors?.confirmPassword?.message}</p>
+          </InputContainer>
 
-          <FormButton type="submit">Entrar</FormButton>
+          <FormButton type="submit">Cadastrar-se</FormButton>
         </Form>
         <Warn>
-          Não possui conta? <Link to={"/cadastro"}>Clique aqui.</Link>
+          Já possui conta? <Link to={"/login"}>Clique aqui.</Link>
         </Warn>
       </RightContainer>
     </Container>

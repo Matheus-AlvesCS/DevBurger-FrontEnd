@@ -38,23 +38,18 @@ export const RightContainer = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: #fff;
+  color: #9758a6;
   font-size: 40px;
   font-weight: 400;
   text-align: center;
   font-family: "Road Rage", sans-serif;
-
-  span {
-    color: #9758a6;
-    font-family: "Road Rage", sans-serif;
-  }
 `;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin: 35px 0 20px 0;
+  gap: 10px;
+  margin: 20px;
   padding: 20px;
   max-width: 400px;
   width: 100%;

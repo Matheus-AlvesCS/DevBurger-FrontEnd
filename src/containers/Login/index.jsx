@@ -44,28 +44,28 @@ export function Login() {
     resolver: yupResolver(schema),
   });
   const onSubmit = async (data) => {
-    try {
-      await toast.promise(
-        api.post("/session", {
-          email: data.email,
-          password: data.password,
-        }),
-        {
-          pending: "Verificando dados...",
-          success: {
-            render() {
-              setTimeout(() => {
-                navigate("/");
-              }, 2000);
-              return "Login realizado com sucesso. 👌";
-            },
+    const {
+      data: { token },
+    } = await toast.promise(
+      api.post("/session", {
+        email: data.email,
+        password: data.password,
+      }),
+      {
+        pending: "Verificando dados...",
+        success: {
+          render() {
+            setTimeout(() => {
+              navigate("/");
+            }, 2000);
+            return "Login realizado com sucesso. 👌";
           },
-          error: "Email ou senha incorretos. 😑",
-        }
-      );
-    } catch (err) {
-      console.log(err.message);
-    }
+        },
+        error: "Email ou senha incorretos. 😑",
+      }
+    );
+
+    localStorage.setItem("token", token);
   };
 
   return (

@@ -21,6 +21,10 @@ export const LeftContainer = styled.div`
   height: 100%;
   width: 100%;
   max-width: 50%;
+
+  img {
+    max-width: 70%;
+  }
 `;
 
 export const RightContainer = styled.div`

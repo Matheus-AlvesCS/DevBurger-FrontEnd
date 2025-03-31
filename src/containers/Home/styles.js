@@ -27,7 +27,4 @@ export const Container = styled.section`
       rgba(255, 255, 255, 0.5)
     ),
     url("${Background}");
-  min-height: 100dvh;
 `;
-
-export const Content = styled.div``;

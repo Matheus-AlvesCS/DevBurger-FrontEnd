@@ -1,10 +1,16 @@
 import styled from "styled-components";
+import { Link } from "react-router";
 
 import Banner from "../../assets/banner-menu.svg";
+import Background from "../../assets/background2.svg";
 
 export const Container = styled.main`
   min-height: 100dvh;
-  background-color: #f0f0f0;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("${Background}");
 `;
 
 export const BannerContainer = styled.div`
@@ -37,6 +43,30 @@ export const BannerContainer = styled.div`
   }
 `;
 
-export const CategoriesMenu = styled.div``;
+export const CategoriesMenu = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 30px;
+`;
 
-export const ProductsContainer = styled.div``;
+export const CategoryButton = styled(Link)`
+  text-decoration: none;
+  background-color: ${(props) => (props.$isActive ? "#9758A6" : "#fff")};
+  color: ${(props) => (props.$isActive ? "#fff" : "#9758A6")};
+  font-size: 20px;
+  font-weight: 500;
+  border: 2px solid #9758a6;
+  border-radius: 10px;
+  padding: 5px;
+  transition: all 0.3s ease-in-out;
+`;
+
+export const ProductsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 40px;
+  gap: 80px;
+  max-width: 1280px;
+  margin: 50px auto 0;
+`;

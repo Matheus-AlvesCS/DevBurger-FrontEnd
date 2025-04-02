@@ -9,6 +9,7 @@ export const Container = styled.div`
   gap: 40px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
 
   div {
     width: 100%;

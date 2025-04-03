@@ -43,11 +43,38 @@ export const BannerContainer = styled.div`
   }
 `;
 
+export const TopContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 30px;
+`;
+
+export const BackButton = styled(Link)`
+  position: absolute;
+  left: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #9758a6;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 5px;
+
+  img {
+    height: 35px;
+  }
+
+  &:hover {
+    background-color: #6f357c;
+  }
+`;
+
 export const CategoriesMenu = styled.div`
   display: flex;
   justify-content: center;
   gap: 50px;
-  margin-top: 30px;
 `;
 
 export const CategoryButton = styled(Link)`

@@ -10,7 +10,11 @@ import {
   CategoriesMenu,
   ProductsContainer,
   CategoryButton,
+  BackButton,
+  TopContainer,
 } from "./styles";
+
+import BackArrow from "../../assets/back-arrow.svg";
 
 import { ProductCard } from "../../components/ProductCard";
 
@@ -79,28 +83,33 @@ export function Menu() {
           <p>Esse cardápio está irresistível!</p>
         </div>
       </BannerContainer>
-      <CategoriesMenu>
-        {categories.map((category) => (
-          <CategoryButton
-            key={category.id}
-            $isActive={category.id === activeCategory}
-            onClick={() => {
-              navigate(
-                {
-                  pathname: "/cardapio",
-                  search: `?categoria=${category.id}`,
-                },
-                {
-                  replace: true,
-                }
-              );
-              setActiveCategory(category.id);
-            }}
-          >
-            {category.name}
-          </CategoryButton>
-        ))}
-      </CategoriesMenu>
+      <TopContainer>
+        <BackButton to={"/"}>
+          <img src={BackArrow} alt="" />
+        </BackButton>
+        <CategoriesMenu>
+          {categories.map((category) => (
+            <CategoryButton
+              key={category.id}
+              $isActive={category.id === activeCategory}
+              onClick={() => {
+                navigate(
+                  {
+                    pathname: "/cardapio",
+                    search: `?categoria=${category.id}`,
+                  },
+                  {
+                    replace: true,
+                  }
+                );
+                setActiveCategory(category.id);
+              }}
+            >
+              {category.name}
+            </CategoryButton>
+          ))}
+        </CategoriesMenu>
+      </TopContainer>
       <ProductsContainer>
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />

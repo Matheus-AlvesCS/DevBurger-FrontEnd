@@ -14,7 +14,7 @@ import {
   TopContainer,
 } from "./styles";
 
-import BackArrow from "../../assets/back-arrow.svg";
+import { ArrowUDownLeft } from "@phosphor-icons/react";
 
 import { ProductCard } from "../../components/ProductCard";
 
@@ -85,7 +85,7 @@ export function Menu() {
       </BannerContainer>
       <TopContainer>
         <BackButton to={"/"}>
-          <img src={BackArrow} alt="" />
+          <ArrowUDownLeft color="#fff" size={32} />
         </BackButton>
         <CategoriesMenu>
           {categories.map((category) => (

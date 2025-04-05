@@ -62,10 +62,6 @@ export const BackButton = styled(Link)`
   border-radius: 10px;
   padding: 5px;
 
-  img {
-    height: 35px;
-  }
-
   &:hover {
     background-color: #6f357c;
   }

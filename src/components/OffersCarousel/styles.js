@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  padding-top: 20px;
+  padding: 20px 0 40px;
   margin-top: 20px;
   overflow-x: hidden;
 

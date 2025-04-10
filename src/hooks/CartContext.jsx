@@ -39,7 +39,9 @@ export const CartProvider = ({ children }) => {
 
   const increaseProduct = (productId) => {
     const newCartProducts = cartProducts.map((prd) => {
-      return prd.id === productId ? { ...prd, quantity: prd.quantity++ } : prd;
+      return prd.id === productId
+        ? { ...prd, quantity: prd.quantity + 1 }
+        : prd;
     });
 
     setCartProducts(newCartProducts);
@@ -52,7 +54,7 @@ export const CartProvider = ({ children }) => {
     if (cartProducts[productIndex].quantity > 1) {
       const newCartProducts = cartProducts.map((prd) => {
         return prd.id === productId
-          ? { ...prd, quantity: prd.quantity-- }
+          ? { ...prd, quantity: prd.quantity - 1 }
           : prd;
       });
 

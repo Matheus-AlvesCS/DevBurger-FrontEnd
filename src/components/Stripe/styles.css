@@ -65,6 +65,10 @@
   cursor: default;
 }
 
+#status-text {
+  text-align: center;
+}
+
 .spinner,
 .spinner:before,
 .spinner:after {
@@ -183,6 +187,7 @@ td {
 
 #retry-button {
   text-align: center;
+  text-decoration: none;
   background: #0055de;
   color: #ffffff;
   border-radius: 4px;

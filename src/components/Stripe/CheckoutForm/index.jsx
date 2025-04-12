@@ -76,7 +76,9 @@ export function CheckoutForm() {
         toast.error("Erro no sistema, não foi possivel realizar o pedido. 😭");
       }
     } else {
-      toast.error("Erro no sistema, não foi possivel realizar o pedido. 😭");
+      navigate(
+        `/complete?payment_intent_client_secret=${paymentIntent.client_secret}`
+      );
     }
 
     setIsLoading(false);

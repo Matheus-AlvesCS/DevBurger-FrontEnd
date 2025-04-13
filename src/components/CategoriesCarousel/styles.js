@@ -10,7 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: #9758a6;
+  color: ${(props) => props.theme.purple};
   font-weight: 800;
   font-size: 32px;
   text-align: center;
@@ -27,7 +27,7 @@ export const Title = styled.h2`
     transform: translateX(-50%);
     height: 4px;
     width: 56px;
-    background-color: #9758a6;
+    background-color: ${(props) => props.theme.purple};
   }
 `;
 
@@ -42,7 +42,7 @@ export const ItemsContainer = styled.div`
 
 export const CategoryButton = styled(Link)`
   text-decoration: none;
-  color: #fff;
+  color: ${(props) => props.theme.white};
   font-size: 20px;
   font-weight: 700;
   background-color: #00000080;
@@ -54,6 +54,6 @@ export const CategoryButton = styled(Link)`
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: #9758a6;
+    background-color: ${(props) => props.theme.purple};
   }
 `;

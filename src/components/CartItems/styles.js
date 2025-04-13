@@ -16,8 +16,8 @@ export const ButtonsGroup = styled.div`
   gap: 10px;
 
   button {
-    background-color: #9758a6;
-    color: #fff;
+    background-color: ${(props) => props.theme.purple};
+    color: ${(props) => props.theme.white};
     border: none;
     border-radius: 5px;
     height: 32px;
@@ -25,7 +25,7 @@ export const ButtonsGroup = styled.div`
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      background-color: #6f357c;
+      background-color: ${(props) => props.theme.secondDarkPurple};
     }
   }
 `;
@@ -41,5 +41,5 @@ export const TrashIcon = styled(Trash)`
 
 export const MenuLink = styled(Link)`
   text-decoration: none;
-  color: #9758a6;
+  color: ${(props) => props.theme.purple};
 `;

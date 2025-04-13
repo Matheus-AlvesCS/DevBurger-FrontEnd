@@ -19,7 +19,7 @@ export const BannerContainer = styled.div`
   background-size: cover;
   background-position: center;
   height: 480px;
-  color: #fff;
+  color: ${(props) => props.theme.white};
   display: flex;
   align-items: center;
   position: relative;
@@ -29,7 +29,7 @@ export const BannerContainer = styled.div`
     right: 20%;
 
     h1 {
-      font-family: "Road Rage", sans-serif;
+      font-family: ${(props) => props.theme.roadRageFont};
       font-size: 90px;
       line-height: 69%;
       text-align: center;
@@ -57,13 +57,13 @@ export const BackButton = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #9758a6;
-  border: 2px solid #fff;
+  background-color: ${(props) => props.theme.purple};
+  border: 2px solid ${(props) => props.theme.white};
   border-radius: 10px;
   padding: 5px;
 
   &:hover {
-    background-color: #6f357c;
+    background-color: ${(props) => props.theme.secondDarkPurple};
   }
 `;
 
@@ -75,11 +75,17 @@ export const CategoriesMenu = styled.div`
 
 export const CategoryButton = styled(Link)`
   text-decoration: none;
-  background-color: ${(props) => (props.$isActive ? "#9758A6" : "#fff")};
-  color: ${(props) => (props.$isActive ? "#fff" : "#9758A6")};
+  background-color: ${(props) =>
+    props.$isActive
+      ? (props) => props.theme.purple
+      : (props) => props.theme.white};
+  color: ${(props) =>
+    props.$isActive
+      ? (props) => props.theme.white
+      : (props) => props.theme.purple};
   font-size: 20px;
   font-weight: 500;
-  border: 2px solid #9758a6;
+  border: 2px solid ${(props) => props.theme.purple};
   border-radius: 10px;
   padding: 5px;
   transition: all 0.3s ease-in-out;

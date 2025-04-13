@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: #fff;
+  background-color: ${(props) => props.theme.white};
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -16,13 +16,13 @@ export const Container = styled.div`
     margin-top: 30px;
 
     p {
-      color: #ff8c05;
+      color: ${(props) => props.theme.orange};
       font-size: 16px;
       font-weight: 700;
     }
 
     strong {
-      color: #363636;
+      color: ${(props) => props.theme.black};
       font-size: 18px;
     }
   }

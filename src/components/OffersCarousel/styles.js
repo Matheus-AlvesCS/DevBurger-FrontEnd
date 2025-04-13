@@ -16,7 +16,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: #61a120;
+  color: ${(props) => props.theme.gren};
   font-weight: 800;
   font-size: 32px;
   text-align: center;
@@ -33,6 +33,6 @@ export const Title = styled.h2`
     transform: translateX(-50%);
     height: 4px;
     width: 56px;
-    background-color: #61a120;
+    background-color: ${(props) => props.theme.gren};
   }
 `;

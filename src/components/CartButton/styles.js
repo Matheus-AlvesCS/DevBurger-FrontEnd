@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-  background-color: #9758a6;
+  background-color: ${(props) => props.theme.purple};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,6 +11,6 @@ export const Container = styled.button`
   width: 100%;
 
   &:hover {
-    background-color: #6f357c;
+    background-color: ${(props) => props.theme.secondDarkPurple};
   }
 `;

@@ -27,7 +27,7 @@ export const BannerContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: #61a120;
+  color: ${(props) => props.theme.gren};
   font-size: 32px;
   font-weight: 800;
   padding-bottom: 10px;
@@ -43,7 +43,7 @@ export const Title = styled.h1`
     transform: translateX(-50%);
     height: 4px;
     width: 56px;
-    background-color: #9758a6;
+    background-color: ${(props) => props.theme.purple};
   }
 `;
 

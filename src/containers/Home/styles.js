@@ -11,8 +11,8 @@ export const BannerContainer = styled.div`
   position: relative;
 
   h1 {
-    color: #fff;
-    font-family: "Road Rage", sans-serif;
+    color: ${(props) => props.theme.white};
+    font-family: ${(props) => props.theme.roadRageFont};
     font-weight: 400;
     font-size: 80px;
     position: absolute;

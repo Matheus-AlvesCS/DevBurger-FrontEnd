@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: #fff;
+  background-color: ${(props) => props.theme.white};
   border-radius: 20px;
   margin-bottom: 20px;
   display: flex;
@@ -9,7 +9,7 @@ export const Container = styled.div`
   justify-content: space-between;
 
   * {
-    color: #484848;
+    color: ${(props) => props.theme.secondBlack};
   }
 
   .top-container {
@@ -26,8 +26,8 @@ export const Container = styled.div`
     grid-area: title;
     text-align: center;
     font-size: 20px;
-    background-color: #484848;
-    color: #fff;
+    background-color: ${(props) => props.theme.secondBlack};
+    color: ${(props) => props.theme.white};
     margin-bottom: 24px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;

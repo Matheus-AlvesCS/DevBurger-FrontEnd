@@ -42,11 +42,11 @@ export const RightContainer = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: #9758a6;
+  color: ${(props) => props.theme.purple};
   font-size: 40px;
   font-weight: 400;
   text-align: center;
-  font-family: "Road Rage", sans-serif;
+  font-family: ${(props) => props.theme.roadRageFont};
 `;
 
 export const Form = styled.form`
@@ -65,7 +65,7 @@ export const InputContainer = styled.div`
   gap: 5px;
 
   label {
-    color: #fff;
+    color: ${(props) => props.theme.white};
     font-size: 18px;
     font-weight: 600;
     margin-left: 5px;
@@ -81,7 +81,7 @@ export const InputContainer = styled.div`
   }
 
   p {
-    color: #cf3057;
+    color: ${(props) => props.theme.darkRed};
     font-size: 12px;
     margin-left: 5px;
     height: 10px;
@@ -89,13 +89,13 @@ export const InputContainer = styled.div`
 `;
 
 export const Warn = styled.p`
-  color: #fff;
+  color: ${(props) => props.theme.white};
   font-size: 18px;
   font-weight: 700;
 
   a {
     text-decoration: underline;
-    color: #fff;
+    color: ${(props) => props.theme.white};
 
     &:hover {
       opacity: 0.8;

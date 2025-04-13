@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router";
 
 export const Container = styled.div`
-  background-color: #1f1f1f;
+  background-color: ${(props) => props.theme.mainBlack};
   width: 100%;
 `;
 
@@ -20,16 +20,20 @@ export const Navigation = styled.nav`
   gap: 20px;
 
   hr {
-    border: 1px solid #625e5e;
+    border: 1px solid ${(props) => props.theme.darkGray};
   }
 `;
 
 export const HeaderLink = styled(Link)`
   text-decoration: none;
-  color: ${(props) => (props.$isActive ? "#9758A6" : "#fff")};
+  color: ${(props) =>
+    props.$isActive
+      ? (props) => props.theme.purple
+      : (props) => props.theme.white};
   font-size: 14px;
   padding-bottom: 2px;
-  border-bottom: ${(props) => (props.$isActive ? "1px solid #9758A6" : "none")};
+  border-bottom: ${(props) =>
+    props.$isActive ? `1px solid ${props.theme.purple}` : "none"};
   transition: all 0.3s ease-in-out;
 
   &:hover {
@@ -50,10 +54,10 @@ export const Profile = styled.div`
     font-weight: 300;
     font-size: 14px;
     line-height: 80%;
-    color: #fff;
+    color: ${(props) => props.theme.white};
 
     span {
-      color: #9758a6;
+      color: ${(props) => props.theme.purple};
       font-weight: 500;
       line-height: 80%;
     }
@@ -69,7 +73,7 @@ export const Logout = styled(Link)`
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: #fa2721;
+    color: ${(props) => props.theme.red};
   }
 `;
 

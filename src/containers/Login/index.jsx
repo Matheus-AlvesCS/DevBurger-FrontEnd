@@ -56,16 +56,18 @@ export function Login() {
         pending: "Verificando dados...",
         success: {
           render() {
-            putUserInfo(userData);
             setTimeout(() => {
-              navigate("/");
+              navigate(userData?.admin ? "/admin/pedidos" : "/");
             }, 2000);
+
             return "Login realizado com sucesso. 👌";
           },
         },
         error: "Email ou senha incorretos. 😑",
       }
     );
+
+    putUserInfo(userData);
   };
 
   return (

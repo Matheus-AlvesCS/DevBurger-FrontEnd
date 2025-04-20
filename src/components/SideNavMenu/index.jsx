@@ -6,7 +6,7 @@ import { Container, Footer, NavContainer, NavLink } from "./styles";
 import { useUser } from "../../hooks/UserContext";
 
 import Logo from "../../assets/logo.svg";
-import { SignOut } from "@phosphor-icons/react";
+import { SignOut, House } from "@phosphor-icons/react";
 
 export function SideNavMenu() {
   const { logout } = useUser();
@@ -29,6 +29,10 @@ export function SideNavMenu() {
         ))}
       </NavContainer>
       <Footer>
+        <NavLink to="/">
+          <House />
+          <p>Ir para Home</p>
+        </NavLink>
         <NavLink to="/login" onClick={logout}>
           <SignOut />
           <p>Sair</p>
